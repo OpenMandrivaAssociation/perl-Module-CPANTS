@@ -15,6 +15,7 @@ Source:         http://www.cpan.org/modules/by-module/Module/%{module}-%{version
 BuildRequires:  perl-devel
 %endif
 BuildArch:      noarch
+BuildRoot:      %{_tmppath}/%{name}-%{version}
 
 %description 
 Kwalitee is an automatically-measurable gauge of how good your software is.
