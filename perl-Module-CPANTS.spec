@@ -1,21 +1,15 @@
 %define module  Module-CPANTS
-%define name    perl-%{module}
-%define version 0.20030725
-%define release %mkrel 5
 
-Name:           %{name}
-Version:        %{version}
-Release:        %{release}
-Summary:        CPAN module testing
-License:        GPL or Artistic
-Group:          Development/Perl
-Url:            http://search.cpan.org/dist/%{module}
-Source:         http://www.cpan.org/modules/by-module/Module/%{module}-%{version}.tar.bz2
-%if %{mdkversion} < 1010
-BuildRequires:  perl-devel
-%endif
-BuildArch:      noarch
-BuildRoot:      %{_tmppath}/%{name}-%{version}
+Name:		perl-%{module}
+Version:	0.20030725
+Release:	6
+Summary:	CPAN module testing
+License:	GPL or Artistic
+Group:		Development/Perl
+Url:		http://search.cpan.org/dist/%{module}
+Source:		http://www.cpan.org/modules/by-module/Module/%{module}-%{version}.tar.bz2
+BuildRequires:	perl-devel
+BuildArch:	noarch
 
 %description 
 Kwalitee is an automatically-measurable gauge of how good your software is.
@@ -34,25 +28,48 @@ Test::Kwalitee and a short test file will do this for you automatically.
 %setup -q -n %{module}-%{version}
 
 %build
-%{__perl} Makefile.PL INSTALLDIRS=vendor
+perl Makefile.PL INSTALLDIRS=vendor
 %make
 
 %check
 # currently broken
-#%{__make} test
+#make test
 
 %install
-rm -rf %{buildroot}
 %makeinstall_std
 
-%clean 
-rm -rf %{buildroot}
-
 %files
-%defattr(-,root,root)
 %doc Changes README
 %{perl_vendorlib}/Module
 %{perl_vendorlib}/auto/Module
 %{_mandir}/*/*
 
+
+%changelog
+* Fri Sep 04 2009 Thierry Vignaud <tv@mandriva.org> 0.20030725-5mdv2010.0
++ Revision: 430506
+- rebuild
+
+* Thu Jul 31 2008 Thierry Vignaud <tv@mandriva.org> 0.20030725-4mdv2009.0
++ Revision: 257853
+- rebuild
+
+* Thu Jul 24 2008 Thierry Vignaud <tv@mandriva.org> 0.20030725-3mdv2009.0
++ Revision: 245886
+- rebuild
+
+  + Olivier Blin <oblin@mandriva.com>
+    - restore BuildRoot
+
+* Mon Dec 17 2007 Thierry Vignaud <tv@mandriva.org> 0.20030725-1mdv2008.1
++ Revision: 123036
+- kill re-definition of %%buildroot on Pixel's request
+
+
+* Sat Nov 25 2006 Guillaume Rousse <guillomovitch@mandriva.org> 0.20030725-1mdv2007.0
++ Revision: 87239
+- Import perl-Module-CPANTS
+
+* Sat Nov 25 2006 Guillaume Rousse <guillomovitch@mandriva.org> 0.20030725-1mdv2007.1
+- first mdv release
 
