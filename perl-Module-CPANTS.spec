@@ -2,7 +2,7 @@
 
 Name:		perl-%{module}
 Version:	0.20030725
-Release:	7
+Release:	8
 Summary:	CPAN module testing
 License:	GPL or Artistic
 Group:		Development/Perl
