@@ -6,7 +6,7 @@ Release:	8
 Summary:	CPAN module testing
 License:	GPL or Artistic
 Group:		Development/Perl
-Url:		http://search.cpan.org/dist/%{module}
+Url:		https://search.cpan.org/dist/%{module}
 Source:		http://www.cpan.org/modules/by-module/Module/%{module}-%{version}.tar.bz2
 BuildRequires:	perl-devel
 BuildArch:	noarch
